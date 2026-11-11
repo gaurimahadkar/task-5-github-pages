@@ -1,0 +1,515 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects | Gauri Mahadkar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #faf8fd;
+    color: #211a32;
+}
+
+/* NAVBAR */
+
+.navbar {
+    height: 76px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: #211a32;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #8955c7;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #211a32;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #8955c7;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: #8955c7;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 20px;
+}
+
+/* HERO */
+
+.projects-hero {
+    text-align: center;
+    padding: 75px 20px 65px;
+    background: linear-gradient(120deg,#f0e8fb,#ffffff);
+}
+
+.section-label {
+    display: inline-block;
+    padding: 9px 22px;
+    border-radius: 30px;
+    background: #eadcf9;
+    color: #8955c7;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.projects-hero h1 {
+    font-size: 43px;
+    font-weight: 800;
+    margin: 20px 0 12px;
+}
+
+.projects-hero h1 span {
+    color: #8955c7;
+}
+
+.projects-hero p {
+    color: #777083;
+    max-width: 650px;
+    margin: auto;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* PROJECT SECTION */
+
+.projects-section {
+    max-width: 1250px;
+    margin: auto;
+    padding: 65px 25px 90px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+/* PROJECT CARD */
+
+.project-card {
+    background: white;
+    border-radius: 17px;
+    overflow: hidden;
+    border: 1px solid #eee8f5;
+    box-shadow: 0 6px 25px rgba(50,30,80,0.06);
+    display: flex;
+    flex-direction: column;
+    transition: 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 18px 40px rgba(80,50,130,0.15);
+}
+
+/* IMAGE */
+
+.project-image {
+    width: 100%;
+    height: 215px;
+    position: relative;
+    overflow: hidden;
+    background: #eadcf9;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.5s;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.07);
+}
+
+.project-number {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    color: #8955c7;
+    border-radius: 30px;
+    padding: 7px 13px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* CONTENT */
+
+.project-content {
+    padding: 25px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.category {
+    color: #8955c7;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.project-content h2 {
+    font-size: 18px;
+    margin: 12px 0;
+    line-height: 1.5;
+}
+
+.project-content p {
+    color: #777083;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+/* TECHNOLOGIES */
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.tech-stack span {
+    background: #f0e8fb;
+    color: #7950b1;
+    padding: 7px 11px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* LINK */
+
+.project-link {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 22px;
+    color: #8955c7;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.project-link:hover {
+    color: #4e287e;
+}
+
+/* FOOTER */
+
+footer {
+    background: #211a32;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: 13px;
+}
+
+/* TABLET */
+
+@media(max-width: 950px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+}
+
+/* MOBILE */
+
+@media(max-width: 650px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        padding: 15px 25px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 12px 0;
+    }
+
+    .projects-hero {
+        padding: 55px 18px;
+    }
+
+    .projects-hero h1 {
+        font-size: 30px;
+    }
+
+    .projects-section {
+        padding: 35px 18px 60px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 220px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+        Gauri<span>.</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+</nav>
+</header>
+
+<!-- HERO -->
+
+<section class="projects-hero">
+
+    <span class="section-label">MY CREATIVE WORK</span>
+
+    <h1>My Recent <span>Projects</span></h1>
+
+    <p>
+        Explore my latest projects showcasing my creativity,
+        technical skills and passion for web development.
+    </p>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects-section">
+
+<div class="projects-grid">
+
+    <!-- HOSTEL MANAGEMENT -->
+
+    <div class="project-card">
+
+        <div class="project-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=900&q=80"
+            alt="Hostel Management System">
+
+            <span class="project-number">01</span>
+
+        </div>
+
+        <div class="project-content">
+
+            <span class="category">MANAGEMENT SYSTEM</span>
+
+            <h2>Hostel Management System</h2>
+
+            <p>
+                A hostel management platform to manage student
+                registrations, room allocations, hostel details
+                and student records efficiently.
+            </p>
+
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Django</span>
+                <span>MongoDB</span>
+            </div>
+
+            <a href="#" class="project-link">View Project ↗</a>
+
+        </div>
+
+    </div>
+
+    <!-- STUDENT NOTES -->
+
+    <div class="project-card">
+
+        <div class="project-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=80"
+            alt="Student Notes and Resources">
+
+            <span class="project-number">02</span>
+
+        </div>
+
+        <div class="project-content">
+
+            <span class="category">EDUCATIONAL PLATFORM</span>
+
+            <h2>Student Notes & Resources</h2>
+
+            <p>
+                A student-friendly platform to access subject-wise
+                notes, study materials, educational resources
+                and academic documents.
+            </p>
+
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Django</span>
+                <span>MongoDB</span>
+            </div>
+
+            <a href="#" class="project-link">View Project ↗</a>
+
+        </div>
+
+    </div>
+
+    <!-- EMPLOYEE MANAGEMENT -->
+
+    <div class="project-card">
+
+        <div class="project-image">
+
+            <img
+            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80"
+            alt="Employee Management System">
+
+            <span class="project-number">03</span>
+
+        </div>
+
+        <div class="project-content">
+
+            <span class="category">BUSINESS MANAGEMENT</span>
+
+            <h2>Employee Management System</h2>
+
+            <p>
+                An employee management application to maintain
+                employee profiles, manage records and simplify
+                administrative activities.
+            </p>
+
+            <div class="tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Django</span>
+                <span>MongoDB</span>
+            </div>
+
+            <a href="#" class="project-link">View Project ↗</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 Gauri Mahadkar. All Rights Reserved.</p>
+</footer>
+
+<script>
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("show");
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("show");
+    });
+});
+
+</script>
+
+</body>
+</html>
